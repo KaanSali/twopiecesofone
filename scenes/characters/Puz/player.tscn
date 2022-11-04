@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5rjdubsowx7x"]
+
+[ext_resource type="Script" path="res://scenes/characters/player.gd" id="1_2cabc"]
+[ext_resource type="Texture2D" uid="uid://c3w5mtv8moeef" path="res://scenes/characters/Puz/Puz_prototype.png" id="1_tj1rr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7kpw"]
+size = Vector2(28, 32)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 192
+script = ExtResource("1_2cabc")
+
+[node name="character_texture" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 3)
+texture = ExtResource("1_tj1rr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("RectangleShape2D_g7kpw")

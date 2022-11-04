@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://co8u1iow0yfjy"]
+
+[ext_resource type="PackedScene" uid="uid://00n5w8eueldc" path="res://scenes/world.tscn" id="1_8ga6j"]
+[ext_resource type="PackedScene" uid="uid://c5rjdubsowx7x" path="res://scenes/characters/Puz/player.tscn" id="2_tt610"]
+[ext_resource type="Script" path="res://scenes/MainCamera.gd" id="3_suk54"]
+[ext_resource type="Theme" uid="uid://dhbom3eb3u2so" path="res://assets/themes/puz zle.tres" id="4_huc0s"]
+
+[node name="Game" type="Node2D"]
+
+[node name="World1-1" parent="." instance=ExtResource("1_8ga6j")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_point") groups=["player"] instance=ExtResource("2_tt610")]
+position = Vector2(21, -491)
+spawn_point = NodePath("../Spawn_Point")
+max_speed = 300.0
+fall_scale = 1.5
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("TrackTarget")]
+current = true
+zoom = Vector2(0.8, 0.8)
+limit_left = 0
+limit_bottom = 0
+limit_smoothed = true
+script = ExtResource("3_suk54")
+TrackTarget = NodePath("../Player")
+
+[node name="Spawn_Point" type="Node2D" parent="."]
+position = Vector2(17, -214)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -324.0
+offset_right = 287.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_huc0s")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 8
+text = "Do you remember me, Puz?"

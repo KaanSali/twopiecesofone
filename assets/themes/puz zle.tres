@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dhbom3eb3u2so"]
+
+[ext_resource type="FontFile" uid="uid://b5h7i82sm6yoo" path="res://assets/fonts/V5Myopia.ttf" id="1_j0sos"]
+
+[resource]
+default_font = ExtResource("1_j0sos")
+default_font_size = 16
+RichTextLabel/constants/outline_size = 4
